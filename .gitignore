@@ -1,0 +1,7 @@
+# Created by .ignore support plugin (hsz.mobi)
+venv_tystar_cz
+.pyc
+__cache__
+.idea
+/main/settings/
+/main/old_settings.py
