@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Movies || {{ block.super }}{% endblock title %}
+
+{% block content %}
+<h1>Movies</h1>
+<ul>
+{% for movie in movies_list %}
+    <li>{{ movie }}</li>
+    Director: {{ movie.director }}, Country: {{ movie.country }}, <a href="{{ movie.csfd }}">CSFD</a>, <a href="{{ movie.imdb }}">IMDB</a>
+{% endfor %}
+</ul>
+
+{% endblock %}
