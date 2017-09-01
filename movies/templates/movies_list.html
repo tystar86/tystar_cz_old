@@ -7,8 +7,13 @@
 <ul>
 {% for movie in movies_list %}
     <li>{{ movie }}</li>
-    Director: {{ movie.director }}, Country: {{ movie.country }}, <a href="{{ movie.csfd }}">CSFD</a>, <a href="{{ movie.imdb }}">IMDB</a>
+    Genre: {{ movie.genre }}, Country: {{ movie.country }}, <a href="{{ movie.csfd }}">CSFD</a>, <a href="{{ movie.imdb }}">IMDB</a>
 {% endfor %}
+</ul>
+<ul>
+    <a href="/movies/genre/comedy/">Comedy</a>
+    <a href="/movies/genre/thriller/">Thriller</a>
+    <a href="/movies/genre/drama/">Drama</a>
 </ul>
 
 {% endblock %}

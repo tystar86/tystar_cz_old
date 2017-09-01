@@ -12,6 +12,7 @@ class Movies(models.Model):
     imdb            = models.URLField(max_length=100, blank=False)
     added           = models.DateTimeField(auto_now_add=True)
     updated         = models.DateTimeField(auto_now=True)
+    #slug            = models.SlugField()
 
     class Meta:
         verbose_name_plural = "movies"
