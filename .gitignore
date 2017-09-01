@@ -4,3 +4,6 @@ _pycache__
 /main/settings/
 /db.sqlite3
 .idea
+main/__pycache__/
+movies/__pycache__/
+
