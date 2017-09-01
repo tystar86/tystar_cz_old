@@ -3,29 +3,30 @@
 
 <head>
     {% include "snippets/css.html" %}
+    <link rel='shortcut icon' type='image/x-icon' href='/static/favicon/favicon.ico'/>
     <title>{% block title %}tystar.cz{% endblock title %}</title>
 </head>
 
 <body>
 
-<div class="container">
-<h1>tystar.cz</h1>
-</div>
+    <div class="container">
+        <h1>tystar.cz</h1>
+    </div>
 
-<div class="container">
-{% include "snippets/navigation.html" %}
-</div>
+    <div class="container">
+        {% include "snippets/navigation.html" %}
+    </div>
 
-<div class="container">
-{% include "snippets/sidebar.html" %}
-</div>
+    <div class="container">
+        {% include "snippets/sidebar.html" %}
+    </div>
 
-<div class="container">
-{% block content %}
-{% endblock %}
-</div>
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
 
-{% include "snippets/css.html" %}
+    {% include "snippets/js.html" %}
 </body>
 
 </html>

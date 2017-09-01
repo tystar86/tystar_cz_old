@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.conf.urls import *
 from django.views.generic import TemplateView
 
 from movies.views import SearchGenreListView, MovieDetailView
