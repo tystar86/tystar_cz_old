@@ -1,31 +1,10 @@
-from django.shortcuts import render
-from django.views import View
-from django.views.generic import TemplateView, ListView, DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
-from django.http import HttpResponseRedirect
+from django.views.generic import TemplateView, ListView, DetailView, CreateView
 
 from .models import Movie
-from .forms import MovieCreateForm
-
-def movie_createview(request):
-    form = MovieCreateForm(request.POST or None)
-    errors = None
-    if form.is_valid():
-        obj = Movie.objects.create(
-            title_en = form.cleaned_data.get("title_en"),
-            release_year = form.cleaned_data.get("release_year"),
-            genre = form.cleaned_data.get("genre"),
-            length = form.cleaned_data.get("length"),
-        )
-        return HttpResponseRedirect("/movies/")
-    if form.errors:
-        errors = form.errors
-
-    template_name = "movie_form.html"
-    context = {"form" : form}
-    return render(request, template_name, context)
-
+from .forms import MovieCreateViewForm
 
 
 def handler404(request):
@@ -51,7 +30,18 @@ class SearchGenreListView(ListView):
             queryset = Movie.objects.all()
         return queryset
 
+
 class MovieDetailView(DetailView):
     template_name = "movie_detail.html"
     queryset = Movie.objects.all()
 
+
+class MovieCreateView(LoginRequiredMixin, CreateView):
+    form_class = MovieCreateViewForm
+    template_name = "movie_form.html"
+    login_url = "/login/"
+
+    def form_valid(self, form):
+        instance = form.save(commit=False)
+        instance.owner = self.request.user
+        return super(MovieCreateView, self).form_valid(form)

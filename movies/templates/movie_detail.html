@@ -8,7 +8,7 @@
     </div>
 
     <div class="">
-        <a href="/movies/create/">Add a movie</a><br/>
+        <a href="{% url 'movie-create' %}">Add a movie</a><br/>
     </div>
 
     <h1>{{ object.title_en }} <small>({{ object.release_year }}) <a href="{{ object.csfd }}">CSFD</a>/ <a href="{{ object.imdb }}">IMDB</a></small></h1>

@@ -10,8 +10,8 @@
 
     <h1>Add a movie</h1>
 
-    {% if errors %}
-    {{ errors }}
+    {% if form.errors.non_field_errors %}
+    {{ form.errors }}
     {% endif %}
 
     <form method="POST"> {% csrf_token %}

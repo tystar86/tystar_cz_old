@@ -9,13 +9,13 @@
     </div>
 
     <div class="">
-        <a href="/movies/create/">Add a movie</a><br/>
+        <a href="{% url 'movie-create' %}">Add a movie</a><br/>
     </div>
 
     <h1>Movies</h1>
     <ul>
     {% for movie in movie_list %}
-        <li><a href="/movies/{{ movie.slug }}/">{{ movie }}</a></li>
+        <li><a href="{{ movie.get_absolute_url }}">{{ movie }}</a></li>
         {{ movie.genre }}
     {% endfor %}
     </ul>
