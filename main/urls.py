@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.conf.urls import *
 from django.views.generic import TemplateView
 
-from movies.views import SearchGenreListView, MovieDetailView
+from movies.views import SearchGenreListView, MovieDetailView, movie_createview
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^contact/$', TemplateView.as_view(template_name="contact.html")),
 
     url(r'^movies/$', SearchGenreListView.as_view()),
-    url(r'^movies/(?P<pk>\w+)$', MovieDetailView.as_view()),
+    url(r'^movies/create/$', movie_createview),
+    url(r'^movies/(?P<slug>[\w-]+)/$', MovieDetailView.as_view()),
     url(r'^movies/genre/(?P<slug>\w+)/$', SearchGenreListView.as_view()),
 ]

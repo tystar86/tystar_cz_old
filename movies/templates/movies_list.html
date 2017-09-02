@@ -2,18 +2,23 @@
 
 {% block title %}Movies || {{ block.super }}{% endblock title %}
 
+
 {% block content %}
-<h1>Movies</h1>
-<ul>
-{% for movie in movies_list %}
-    <li>{{ movie }}</li>
-    Genre: {{ movie.genre }}, Country: {{ movie.country }}, <a href="{{ movie.csfd }}">CSFD</a>, <a href="{{ movie.imdb }}">IMDB</a>
-{% endfor %}
-</ul>
-<ul>
-    <a href="/movies/genre/comedy/">Comedy</a>
-    <a href="/movies/genre/thriller/">Thriller</a>
-    <a href="/movies/genre/drama/">Drama</a>
-</ul>
+    <div class="">
+        {% include "snippets/movie_sidebar.html" %}
+    </div>
+
+    <div class="">
+        <a href="/movies/create/">Add a movie</a><br/>
+    </div>
+
+    <h1>Movies</h1>
+    <ul>
+    {% for movie in movie_list %}
+        <li><a href="/movies/{{ movie.slug }}/">{{ movie }}</a></li>
+        {{ movie.genre }}
+    {% endfor %}
+    </ul>
+
 
 {% endblock %}

@@ -1,9 +1,10 @@
 venv_tystar_cz
 .pyc
-_pycache__
 /main/settings/
 /db.sqlite3
 .idea
 main/__pycache__/
 movies/__pycache__/
+/movies/migrations/_pycache__
+
 

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Movies || {{ block.super }}{% endblock title %}
+
+{% block content %}
+
+    <div class="">
+        {% include "snippets/movie_sidebar.html" %}
+    </div>
+
+    <h1>Add a movie</h1>
+
+    {% if errors %}
+    {{ errors }}
+    {% endif %}
+
+    <form method="POST"> {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+
+{% endblock %}
