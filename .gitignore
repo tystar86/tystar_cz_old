@@ -1,9 +1,7 @@
 venv_tystar_cz
-.pyc
+*.pyc
 /main/settings/
 /db.sqlite3
 .idea
 __pycache__
-
-
-
+venv
