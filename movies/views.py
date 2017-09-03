@@ -4,7 +4,7 @@ from django.template import RequestContext
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
 
 from .models import Movie
-from .forms import MovieCreateViewForm
+from .forms import MovieForm
 
 
 def handler404(request):
@@ -19,7 +19,7 @@ def handler500(request):
     return response
 
 
-class SearchGenreListView(ListView):
+class MovieListView(ListView):
     template_name = "movies_list.html"
 
     def get_queryset(self):
@@ -37,11 +37,16 @@ class MovieDetailView(DetailView):
 
 
 class MovieCreateView(LoginRequiredMixin, CreateView):
-    form_class = MovieCreateViewForm
-    template_name = "movie_form.html"
+    form_class = MovieForm
+    template_name = "form.html"
     login_url = "/login/"
 
     def form_valid(self, form):
-        instance = form.save(commit=False)
-        instance.owner = self.request.user
+        obj = form.save(commit=False)
+        obj.owner = self.request.user
         return super(MovieCreateView, self).form_valid(form)
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(MovieCreateView, self).get_context_data(*args, **kwargs)
+        context["title"] = "Add a movie"
+        return context

@@ -3,8 +3,7 @@ venv_tystar_cz
 /main/settings/
 /db.sqlite3
 .idea
-main/__pycache__/
-movies/__pycache__/
-/movies/migrations/_pycache__
+__pycache__
+
 
 

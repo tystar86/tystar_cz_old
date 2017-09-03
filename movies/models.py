@@ -16,9 +16,7 @@ class Movie(models.Model):
     release_year    = models.IntegerField(validators=[validate_release_year])
     length          = models.IntegerField(blank=True)
     country         = models.CharField(max_length=100, blank=True)
-    director        = models.CharField(max_length=100, blank=True)
-    actor           = models.CharField(max_length=100, blank=True)
-    genre           = models.CharField(max_length=120, blank=True, validators=[validate_genre])
+    genre           = models.CharField(max_length=120, blank=True, help_text="Separate by comma", validators=[validate_genre])
     csfd            = models.URLField(max_length=100, blank=False)
     imdb            = models.URLField(max_length=100, blank=False)
     added           = models.DateTimeField(auto_now_add=True)
@@ -32,7 +30,10 @@ class Movie(models.Model):
         return self.title_en
 
     def get_absolute_url(self):
-        return reverse("movie-detail", kwargs={"slug" : self.slug})
+        return reverse("movies:detail", kwargs={"slug" : self.slug})
+
+    def get_contents(self):
+        return self.genre.split(",")
 
     @property
     def title(self):

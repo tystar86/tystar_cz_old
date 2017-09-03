@@ -3,7 +3,7 @@ from django import forms
 from .models import Movie
 
 
-class MovieCreateViewForm(forms.ModelForm):
+class MovieForm(forms.ModelForm):
     class Meta:
         model = Movie
         fields = {

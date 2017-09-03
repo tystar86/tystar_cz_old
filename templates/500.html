@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% include "snippets/css.html" %}
-    <meta charset="UTF-8">
-    <title>Error</title>
-</head>
-<body>
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1 class="display-3">500</h1>
-        <p class="lead">Holly cat, internal error!</p>
-      </div>
-    </div>
-{% include "snippets/js.html" %}
-</body>
-</html>
+{% extends "404.html" %}
+
+
+{% block title %}Error{% endblock title %}
+
+{% block content %}
+    <h1 class="display-3">Internal error!</h1>
+    <p class="lead">I am sorry.</p>
+{% endblock %}

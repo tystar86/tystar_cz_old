@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Actors || {{ block.super }}{% endblock title %}
+
+{% block content %}
+    <div class="">
+        {% include "snippets/movie_sidebar.html" %}
+    </div>
+
+    <div class="">
+        <a href="{% url 'actors:create' %}">Add an actor</a><br/>
+    </div>
+
+    <h1>{{ object.name }}<small>({{ object.country }})</small></h1>
+
+    <ul>
+        <li>Movies: {{ object.movie }}</li>
+        <li>Born: {{ object.born }}</li>
+        <li>Died: {{ object.died }}</li>
+        <li>Sex: {{ object.sex }}</li>
+        <li>Last update {{ object.updated|timesince }} ago</li>
+    </ul>
+
+{% endblock %}
