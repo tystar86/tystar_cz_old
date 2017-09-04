@@ -8,6 +8,8 @@
     </div>
 
     <h1>{{ object.title_en }} <small><a href="{% url 'movies:create' %}">Add a movie</a></small></h1>
+    <p>last update {{ object.updated|timesince }} ago</p>
+
     <ul>
         <li>English title: {{ object.title_en }}</li>
         <li>Original title: {{ object.title_origin }}</li>
@@ -16,10 +18,8 @@
         <li>Country: {{ object.country }}</li>
         <li>Director: {{ object.director }}</li>
         <li>Genre: {{ object.genre }}</li>
-        <li><a href="{{ object.csfd }}">CSFD</a>/ <a href="{{ object.imdb }}">IMDB</a></li>
         <li>Release Year: {{ object.release_year }}</li>
-
-        <li>Last update {{ object.updated|timesince }} ago</li>
+        <li><a href="{{ object.csfd }}">CSFD</a>/ <a href="{{ object.imdb }}">IMDB</a></li>
     </ul>
 
 {% endblock %}

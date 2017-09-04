@@ -9,11 +9,13 @@ class ActorForm(forms.ModelForm):
         model = Actor
         fields = {
             "name",
-            "movie",
-            "born",
-            "died",
             "country",
+            "born",
+            "movie",
+            "died",
             "sex",
+            "csfd",
+            "imdb",
         }
 
     def __init__(self, user=None, *args, **kwargs):

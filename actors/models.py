@@ -16,9 +16,11 @@ class Actor(models.Model):
     died            = models.DateField(blank=True, null=True)
     country         = models.CharField(max_length=120, blank=True)
     sex             = models.CharField(max_length=5, blank=True)
-    public          = models.BooleanField(default=True)
+    csfd            = models.URLField(max_length=100, blank=False)
+    imdb            = models.URLField(max_length=100, blank=False)
     added           = models.DateTimeField(auto_now_add=True)
     updated         = models.DateTimeField(auto_now=True)
+    public          = models.BooleanField(default=True)
     slug            = models.SlugField(blank=True)
 
 

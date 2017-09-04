@@ -12,15 +12,16 @@ class Movie(models.Model):
     owner           = models.ForeignKey(User)
     title_en        = models.CharField(max_length=100, validators=[validate_title_en])
     title_origin    = models.CharField(max_length=100, blank=True)
-    title_cs        = models.CharField(max_length=100, blank=True)
+    title_cz        = models.CharField(max_length=100, blank=True)
     release_year    = models.IntegerField(validators=[validate_release_year])
     length          = models.IntegerField(blank=True)
     country         = models.CharField(max_length=100, blank=True)
-    genre           = models.CharField(max_length=120, blank=True, help_text="Separate by comma", validators=[validate_genre])
+    genre           = models.CharField(max_length=120, blank=True, validators=[validate_genre])
     csfd            = models.URLField(max_length=100, blank=False)
     imdb            = models.URLField(max_length=100, blank=False)
     added           = models.DateTimeField(auto_now_add=True)
     updated         = models.DateTimeField(auto_now=True)
+    public          = models.BooleanField(default=True)
     slug            = models.SlugField(blank=True)
 
     class Meta:

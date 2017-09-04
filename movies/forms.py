@@ -8,7 +8,12 @@ class MovieForm(forms.ModelForm):
         model = Movie
         fields = {
             "title_en",
+            "title_origin",
+            "title_cz",
             "release_year",
-            "genre",
             "length",
+            "country",
+            "genre",
+            "csfd",
+            "imdb",
         }
