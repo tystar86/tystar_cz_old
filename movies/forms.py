@@ -1,14 +1,14 @@
-from django import forms
+from django.forms import ModelForm
 
 from .models import Movie
 
 
-class MovieForm(forms.ModelForm):
+class MovieForm(ModelForm):
     class Meta:
         model = Movie
-        fields = {
-            "title_en",
+        fields = [
             "title_origin",
+            "title_en",
             "title_cz",
             "release_year",
             "length",
@@ -16,4 +16,4 @@ class MovieForm(forms.ModelForm):
             "genre",
             "csfd",
             "imdb",
-        }
+        ]
