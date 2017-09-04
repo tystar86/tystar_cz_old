@@ -11,11 +11,12 @@
     <p>last update {{ object.updated|timesince }} ago</p>
 
     <ul>
-        <li>Movies:     {{ object.movie }}</li>
+        <li>Sex:        {{ object.sex }}</li>
         <li>Born:       {{ object.born }}</li>
         <li>Died:       {{ object.died }}</li>
-        <li>Sex:        {{ object.sex }}</li>
         <li>Country:    {{ object.country }}</li>
+        <li>Movies:     {{ object.movie }}</li>
+        <li><a href="{{ object.csfd }}">CSFD</a>/ <a href="{{ object.imdb }}">IMDB</a></li>
     </ul>
 
 {% endblock %}
