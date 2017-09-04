@@ -63,3 +63,8 @@ class ActorUpdateView(LoginRequiredMixin, UpdateView):
         context = super(ActorUpdateView, self).get_context_data(*args, **kwargs)
         context["title"] = "Update an actor"
         return context
+
+    def get_form_kwargs(self):
+        kwargs = super(ActorUpdateView, self).get_form_kwargs()
+        kwargs["user"] = self.request.user
+        return kwargs

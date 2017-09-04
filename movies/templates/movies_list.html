@@ -8,11 +8,7 @@
         {% include "snippets/movie_sidebar.html" %}
     </div>
 
-    <div class="">
-        <a href="{% url 'movies:create' %}">Add a movie</a><br/>
-    </div>
-
-    <h1>Movies</h1>
+    <h1>Movies<small><a href="{% url 'movies:create' %}">Add a movie</a></small></h1>
     <ul>
     {% for movie in movie_list %}
         <li><a href="{{ movie.get_absolute_url }}">{{ movie }}</a></li>

@@ -8,11 +8,7 @@
         {% include "snippets/movie_sidebar.html" %}
     </div>
 
-    <div class="">
-        <a href="{% url 'actors:create' %}">Add an actor</a><br/>
-    </div>
-
-    <h1>Actors</h1>
+<h1>Actors<small><a href="{% url 'actors:create' %}">Add an actor</a></small></h1>
     <ul>
     {% for actor in actor_list %}
         <li><a href="{{ actor.get_absolute_url }}">{{ actor.name }}</a></li>
