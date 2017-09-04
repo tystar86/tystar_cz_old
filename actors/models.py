@@ -10,7 +10,7 @@ User = settings.AUTH_USER_MODEL
 
 class Actor(models.Model):
     user            = models.ForeignKey(User)
-    movie           = models.ForeignKey(Movie)
+    movie           = models.ForeignKey(Movie, blank=True, null=True)
     name            = models.CharField(max_length=120)
     born            = models.DateField(blank=True, null=True)
     died            = models.DateField(blank=True, null=True)

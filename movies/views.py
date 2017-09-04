@@ -1,7 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
-from django.views.generic import TemplateView, ListView, DetailView, CreateView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
 
 from .models import Movie
 from .forms import MovieForm
@@ -49,4 +49,20 @@ class MovieCreateView(LoginRequiredMixin, CreateView):
     def get_context_data(self, *args, **kwargs):
         context = super(MovieCreateView, self).get_context_data(*args, **kwargs)
         context["title"] = "Add a movie"
+        return context
+
+class MovieUpdateView(LoginRequiredMixin, UpdateView):
+    template_name = "form.html"
+    form_class = MovieForm
+    login_url = "/login/"
+
+    def get_queryset(self):
+        if self.request.user.is_anonymous():
+            return Movie.objects.all()
+        else:
+            return Movie.objects.filter(owner=self.request.user)
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(MovieUpdateView, self).get_context_data(*args, **kwargs)
+        context["title"] = "Update a movie"
         return context
