@@ -4,17 +4,18 @@
 
 
 {% block content %}
-    <div class="">
+    <div class="movies-sidebar">
         {% include "snippets/movie_sidebar.html" %}
     </div>
-
-    <h1>Movies<small><a href="{% url 'movies:create' %}">Add a movie</a></small></h1>
+    <div class="movie">
+    <h2>Movies<small><a href="{% url 'movies:create' %}">Add a movie</a></small></h2>
     <ul>
     {% for movie in movie_list %}
         <li><a href="{{ movie.get_absolute_url }}">{{ movie }}</a></li>
         {{ movie.genre }}
     {% endfor %}
     </ul>
+    </div>
 
 
 {% endblock %}

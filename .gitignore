@@ -5,3 +5,4 @@ venv_tystar_cz
 .idea
 __pycache__
 venv
+/node_modules/

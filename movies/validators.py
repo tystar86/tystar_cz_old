@@ -20,8 +20,8 @@ def validate_release_year(value):
 GENRES = ["Comedy", "Scifi", "Drama", "Thriller", "Action", "Crime"]
 
 def validate_genre(value):
-    genre = value.capitalize()
-    if value not in GENRES and not genre in GENRES:
+    name = value.capitalize()
+    if value not in GENRES and not name in GENRES:
         raise  ValidationError(
             "Not a valid genre!",
             params={"value" : value}

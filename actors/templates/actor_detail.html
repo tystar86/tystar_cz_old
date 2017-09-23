@@ -3,11 +3,11 @@
 {% block title %}Actors || {{ block.super }}{% endblock title %}
 
 {% block content %}
-    <div class="">
+    <div class="movies-sidebar">
         {% include "snippets/movie_sidebar.html" %}
     </div>
-
-<h1>{{ object.name }}<small><a href="{% url 'actors:create' %}">Add an actor</a></small></h1>
+    <div class="movie">
+    <h2>{{ object.name }}<small><a href="{% url 'actors:create' %}">Add an actor</a></small></h2>
     <p>last update {{ object.updated|timesince }} ago</p>
 
     <ul>
@@ -18,5 +18,6 @@
         <li>Movies:     {{ object.movie }}</li>
         <li><a href="{{ object.csfd }}">CSFD</a>/ <a href="{{ object.imdb }}">IMDB</a></li>
     </ul>
+    </div>
 
 {% endblock %}

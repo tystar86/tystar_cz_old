@@ -4,20 +4,21 @@
 
 {% block content %}
 
-    <div class="">
+    <div class="movies-sidebar">
         {% include "snippets/movie_sidebar.html" %}
     </div>
+    <div class="movie">
+        <h2>{{ title }}</h2>
 
-    <h1>{{ title }}</h1>
+        {% if form.errors.non_field_errors %}
+        {{ form.errors }}
+        {% endif %}
 
-    {% if form.errors.non_field_errors %}
-    {{ form.errors }}
-    {% endif %}
-
-    <form method="POST"> {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Save</button>
-    </form>
+        <form method="POST"> {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+    </div>
 
 
 {% endblock %}

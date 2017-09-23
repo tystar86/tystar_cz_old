@@ -4,9 +4,18 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 
 from .utils import unique_slug_generator
-from .validators import validate_title_en, validate_release_year, validate_genre
+from .validators import validate_title_en, validate_release_year
 
 User = settings.AUTH_USER_MODEL
+
+
+class Genre(models.Model):
+    name            = models.CharField(max_length=120, blank=True)
+    public          = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.name
+
 
 class Movie(models.Model):
     owner           = models.ForeignKey(User)
@@ -16,7 +25,7 @@ class Movie(models.Model):
     release_year    = models.IntegerField(validators=[validate_release_year])
     length          = models.IntegerField(blank=True)
     country         = models.CharField(max_length=100, blank=True)
-    genre           = models.CharField(max_length=120, blank=True, validators=[validate_genre])
+    genre           = models.ManyToManyField(Genre)
     csfd            = models.URLField(max_length=100, blank=False)
     imdb            = models.URLField(max_length=100, blank=False)
     added           = models.DateTimeField(auto_now_add=True)
@@ -40,9 +49,7 @@ class Movie(models.Model):
     def title(self):
         return self.title_en
 
-
 def pre_save_receiver(sender, instance, *args, **kwargs):
-    instance.genre = instance.genre.capitalize()
     if not instance.slug:
         instance.slug = unique_slug_generator(instance)
 
