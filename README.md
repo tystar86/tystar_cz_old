@@ -5,5 +5,5 @@ Just a training site where should be several apps - Movie database, Blog, ToDoLi
 ### Movie Database
 * Login
 * Add a movie, an actor, a director only when logged
-* Update -"- 
+* Update  -"- 
 
