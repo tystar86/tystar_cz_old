@@ -3,14 +3,17 @@
 
 {% block title %}About || {{ block.super }}{% endblock title %}
 
-{% block content %}
-<div class="movie">
-    <h2>About</h2>
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+    <li class="breadcrumb-item active">About</li>
+{% endblock %}
 
+{% block content %}
+<div class="container">
     <ul>
-        <li>first</li>
-        <li>second</li>
-        <li>third</li>
+        <li>Something</li>
+        <li>Something else</li>
+        <li>Whatever</li>
     </ul>
 </div>
 {% endblock %}

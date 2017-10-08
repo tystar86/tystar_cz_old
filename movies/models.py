@@ -12,9 +12,17 @@ User = settings.AUTH_USER_MODEL
 class Genre(models.Model):
     name            = models.CharField(max_length=120, blank=True)
     public          = models.BooleanField(default=True)
+    slug            = models.SlugField(blank=True)
 
     def __str__(self):
         return self.name
+
+    @property
+    def title(self):
+        return self.name
+
+    def get_absolute_url(self):
+        return reverse("genre:detail", kwargs={"slug" : self.slug})
 
 
 class Movie(models.Model):
@@ -32,6 +40,7 @@ class Movie(models.Model):
     updated         = models.DateTimeField(auto_now=True)
     public          = models.BooleanField(default=True)
     slug            = models.SlugField(blank=True)
+
 
     class Meta:
         verbose_name_plural = "movies"
@@ -55,3 +64,4 @@ def pre_save_receiver(sender, instance, *args, **kwargs):
 
 
 pre_save.connect(pre_save_receiver, sender=Movie)
+pre_save.connect(pre_save_receiver, sender=Genre)

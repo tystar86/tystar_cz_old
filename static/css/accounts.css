@@ -1,0 +1,13 @@
+body {
+    background-image: url(../img/pow-star.png);
+}
+.logo {
+    font-family: 'Supermercado One', cursive;
+}
+.logo a {
+    color: #0c5460;
+}
+.logo a:hover,
+.logo a:active {
+    text-decoration: none;
+}

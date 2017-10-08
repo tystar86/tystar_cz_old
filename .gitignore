@@ -1,8 +1,11 @@
 venv_tystar_cz
 *.pyc
-/main/settings/
 /db.sqlite3
 .idea
 __pycache__
 venv
 /node_modules/
+/main/settings/keys.py
+/main/settings/docker_postgres.py
+/main/settings/local.py
+/main/settings/production.py

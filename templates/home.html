@@ -1,11 +1,15 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
 {% block title %}Welcome || {{ block.super }}{% endblock title %}
 
+{% block breadcrumb %}
+    <li class="breadcrumb-item active">Home</li>
+{% endblock %}
+
 {% block content %}
-<div class="movie">
+
     <h2>Welcome</h2>
-    <p>This site is my training site. You can find here ŠFD (movie database), Jingle (blog) and HolkyTalky (forum).
-    (picture DB, dating site, crm, calendar)</p>
-</div>
+    <p>This site is my training site. You can find here ŠFD (movie database) and forum.tystar.cz so far, more in progress.
+    (picture DB, dating site, CRM, calendar, ToDo)</p>
+
 {% endblock %}

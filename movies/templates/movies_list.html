@@ -12,7 +12,8 @@
     <ul>
     {% for movie in movie_list %}
         <li><a href="{{ movie.get_absolute_url }}">{{ movie }}</a></li>
-        {{ movie.genre }}
+        genre: {% for genre in movie.genre.all %} {{ genre }} {% endfor %}
+
     {% endfor %}
     </ul>
     </div>

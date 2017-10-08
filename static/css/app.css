@@ -1,0 +1,36 @@
+.navbar-brand {
+    font-family: 'Supermercado One', cursive;
+    font-size: 40px;
+    color: #1e7e34;
+}
+.bg-dark {
+    background-color: #457313!important;
+}
+.btn-primary,
+.btn-success {
+    background-color: #C2E79A;
+    border-color: #C2E79A;
+}
+.btn-primary:hover,
+.btn-success:hover {
+    background-color:#868e96;
+    border-color:#868e96;
+}
+.btn-outline-secondary {
+    color: #ffffff;
+    border-color: #ffffff;
+}
+.thead-inverse th {
+    color: #fff;
+    background-color: #699A33;
+}
+body {
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    color: #212529;
+    background-color: #fff;
+}
+a {
+    color: #000000;
+    font-weight: bold;
+}

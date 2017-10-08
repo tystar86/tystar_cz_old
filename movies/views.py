@@ -3,7 +3,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
 
-from .models import Movie
+from .models import Movie, Genre
 from .forms import MovieForm
 
 
@@ -25,7 +25,7 @@ class MovieListView(ListView):
     def get_queryset(self):
         slug = self.kwargs.get("slug")
         if slug:
-            queryset = Movie.objects.filter(genre__icontains=slug)
+            queryset = Movie.objects.filter(genre__name__icontains=slug)
         else:
             queryset = Movie.objects.all()
         return queryset
@@ -66,3 +66,19 @@ class MovieUpdateView(LoginRequiredMixin, UpdateView):
         context = super(MovieUpdateView, self).get_context_data(*args, **kwargs)
         context["title"] = "Update a movie"
         return context
+
+
+class GenreListView(ListView):
+    template_name = "genre_list.html"
+
+    def get_queryset(self):
+        slug = self.kwargs.get("slug")
+        if slug:
+            queryset = Genre.objects.filter(name__icontains=slug)
+        else:
+            queryset = Genre.objects.all()
+        return queryset
+
+class GenreDetailView(DetailView):
+    template_name = "genre_detail.html"
+    queryset = Genre.objects.all()
