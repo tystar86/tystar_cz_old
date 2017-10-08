@@ -2,12 +2,17 @@
 
 {% block title %}Login || {{ block.super }}{% endblock %}
 
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+    <li class="breadcrumb-item active">Login</li>
+{% endblock %}
+
 {% block content %}
-<div class="movies-sidebar">
-        {% include "snippets/movie_sidebar.html" %}
-</div>
-<div class="movie">
+
+    {% include "snippets/movie_sidebar.html" %}
+
     <h1>Login</h1>
+
     {% if form.errors %}
     <p>Your username and password didn't match. Please try again.</p>
     {% endif %}
@@ -37,6 +42,5 @@
     <input type="submit" value="login" />
     <input type="hidden" name="next" value="{{ next }}" />
     </form>
-</div>
 
 {% endblock %}

@@ -2,12 +2,14 @@
 
 {% block title %}Actors || {{ block.super }}{% endblock title %}
 
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+    <li class="breadcrumb-item active">Actors</li>
+{% endblock %}
 
 {% block content %}
-    <div class="movies-sidebar">
         {% include "snippets/movie_sidebar.html" %}
-    </div>
-    <div class="movie">
+
     <h2>Actors<small><a href="{% url 'actors:create' %}">Add an actor</a></small></h2>
     <ul>
     {% for actor in actor_list %}
@@ -15,7 +17,5 @@
         {{ actor.sex }}
     {% endfor %}
     </ul>
-    </div>
-
 
 {% endblock %}

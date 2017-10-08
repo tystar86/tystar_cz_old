@@ -1,13 +1,17 @@
 {% extends "base.html" %}
 
+
 {% block title %}Movies || {{ block.super }}{% endblock title %}
 
-{% block content %}
-    <div class="movies-sidebar">
-        {% include "snippets/movie_sidebar.html" %}
-    </div>
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'movies:list' %}">Movies</a></li>
+    <li class="breadcrumb-item active">{{ object.title_en }}</li>
+{% endblock %}
 
-    <div class="movie">
+{% block content %}
+    {% include "snippets/movie_sidebar.html" %}
+
     <h2>{{ object.title_en }} <small><a href="{% url 'movies:create' %}">Add a movie</a></small></h2>
     <p>last update {{ object.updated|timesince }} ago</p>
 
@@ -22,6 +26,5 @@
         <li>Release Year: {{ object.release_year }}</li>
         <li><a href="{{ object.csfd }}">CSFD</a>/ <a href="{{ object.imdb }}">IMDB</a></li>
     </ul>
-    </div>
 
 {% endblock %}

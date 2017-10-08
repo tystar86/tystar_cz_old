@@ -2,12 +2,15 @@
 
 {% block title %}{{ title }} || {{ block.super }}{% endblock title %}
 
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+    <li class="breadcrumb-item active">{{ title }}</li>
+{% endblock %}
+
 {% block content %}
 
-    <div class="movies-sidebar">
         {% include "snippets/movie_sidebar.html" %}
-    </div>
-    <div class="movie">
+
         <h2>{{ title }}</h2>
 
         {% if form.errors.non_field_errors %}
@@ -18,7 +21,6 @@
             {{ form.as_p }}
             <button type="submit">Save</button>
         </form>
-    </div>
 
 
 {% endblock %}

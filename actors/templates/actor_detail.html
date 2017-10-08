@@ -2,11 +2,16 @@
 
 {% block title %}Actors || {{ block.super }}{% endblock title %}
 
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'actors:list' %}">Actors</a></li>
+    <li class="breadcrumb-item active">{{ object.name }}</li>
+{% endblock %}
+
 {% block content %}
-    <div class="movies-sidebar">
+
         {% include "snippets/movie_sidebar.html" %}
-    </div>
-    <div class="movie">
+
     <h2>{{ object.name }}<small><a href="{% url 'actors:create' %}">Add an actor</a></small></h2>
     <p>last update {{ object.updated|timesince }} ago</p>
 
@@ -18,6 +23,5 @@
         <li>Movies:     {{ object.movie }}</li>
         <li><a href="{{ object.csfd }}">CSFD</a>/ <a href="{{ object.imdb }}">IMDB</a></li>
     </ul>
-    </div>
 
 {% endblock %}
