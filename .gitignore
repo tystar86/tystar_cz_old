@@ -1,5 +1,4 @@
 venv_tystar_cz
-*.pyc
 /db.sqlite3
 .idea
 __pycache__
@@ -9,3 +8,4 @@ venv
 /main/settings/docker_postgres.py
 /main/settings/local.py
 /main/settings/production.py
+settings/__pycache__
