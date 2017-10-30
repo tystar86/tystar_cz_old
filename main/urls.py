@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^$', TemplateView.as_view(template_name="home.html"), name="home"),
     url(r'^about/$', TemplateView.as_view(template_name="about.html"), name="about"),
     url(r'^contact/$', TemplateView.as_view(template_name="contact.html"), name="contact"),
+    url(r'^pgp/$', TemplateView.as_view(template_name="pgp.html"), name="pgp"),
 
     url(r'^movies/', include('movies.urls', namespace="movies")),
     url(r'^actors/', include('actors.urls', namespace="actors")),
