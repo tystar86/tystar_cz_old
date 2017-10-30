@@ -15,7 +15,7 @@ class Actor(models.Model):
     born            = models.DateField(blank=True, null=True)
     died            = models.DateField(blank=True, null=True)
     country         = models.CharField(max_length=120, blank=True)
-    sex             = models.CharField(max_length=5, blank=True)
+    sex             = models.CharField(max_length=6, blank=True)
     csfd            = models.URLField(max_length=100, blank=False)
     imdb            = models.URLField(max_length=100, blank=False)
     added           = models.DateTimeField(auto_now_add=True)
