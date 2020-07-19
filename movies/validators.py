@@ -21,7 +21,7 @@ GENRES = ["Comedy", "Scifi", "Drama", "Thriller", "Action", "Crime"]
 
 def validate_genre(value):
     name = value.capitalize()
-    if value not in GENRES and not name in GENRES:
+    if value not in GENRES and name not in GENRES:
         raise  ValidationError(
             "Not a valid genre!",
             params={"value" : value}
