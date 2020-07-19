@@ -16,10 +16,7 @@ def unique_slug_generator(instance, new_slug=None):
     This is for a Django project and it assumes your instance
     has a model with a slug field and a title character (char) field.
     """
-    if new_slug is not None:
-        slug = new_slug
-    else:
-        slug = slugify(instance.title)
+    slug = new_slug if new_slug is not None else slugify(instance.title)
     if slug in DONT_USE:
         new_slug = "{slug}-{randstr}".format(
             slug=slug,
